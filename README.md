@@ -1,5 +1,7 @@
 # ng2tree
 
+Angular 2 runtime console debugger
+
 ## Usage
 
 See `example/`.
