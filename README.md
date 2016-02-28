@@ -7,7 +7,7 @@ Angular 2 runtime console debugger
 See `example/`.
 
 ```ts
-import {enableNg2Tree} from "../../lib/index";
+import {enableNg2Tree} from "ng2tree";
 
 if(isProd) {
   ...
