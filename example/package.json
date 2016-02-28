@@ -1,0 +1,30 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "tsconfig -u ./tsconfig.json",
+    "prewatch": "npm run prebuild",
+    "build": "browserify -v -o bundle.js -p [tsify] scripts/index.ts",
+    "watch": "watchify -v -o bundle.js -p [tsify] scripts/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "tsconfig-cli": "^0.1.1",
+    "tsify": "^0.13.2",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-beta.7",
+    "es6-collections": "0.5.5",
+    "es6-promise": "3.1.2",
+    "es6-shim": "0.33.13",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "0.5.15"
+  }
+}

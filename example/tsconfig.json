@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "moduleResolution": "node"
+    },
+    "filesGlob": [
+        "scripts/**/*.ts",
+        "../index.ts"
+    ],
+    "files": [
+        "scripts/app.ts",
+        "scripts/components/city.ts",
+        "scripts/components/country.ts",
+        "scripts/index.ts",
+        "../index.ts"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "declaration": true
+    },
+    "filesGlob": [
+        "index.ts",
+        "lib/**/*.ts",
+        "!lib/**/*.d.ts"
+    ],
+    "files": [
+        "index.ts",
+        "lib/index.ts"
+    ]
+}

@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+typings/
+lib/**/*.js
+test/**/*.js
+index.js
+index.d.ts
+
+npm-debug.log

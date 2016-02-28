@@ -1,0 +1,15 @@
+.git/
+.idea/
+node_modules/
+npm-shrinkwrap.json
+
+typings/
+
+example/
+test/
+lib/**/*.ts
+!lib/**/*.d.ts
+
+.gitignore
+.editorconfig
+npm-debug.log
