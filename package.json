@@ -1,7 +1,7 @@
 {
-  "name": "ng2tree",
+  "name": "ng2-tree-viewer",
   "version": "0.0.3",
-  "description": "",
+  "description": "Angular 2 runtime console debugger",
   "main": "index.js",
   "scripts": {
     "start": "ws -d example -s index.html",
@@ -10,7 +10,11 @@
     "pretest": "npm run build && tsconfig -u ./test/tsconfig.json",
     "test": "tsc -p test && mocha test -v"
   },
-  "keywords": [],
+  "keywords": [
+    "angular",
+    "angular2",
+    "ng2"
+  ],
   "author": "laco0416 <laco0416+github@gmail.com>",
   "repository": "https://github.com/laco0416/ng2tree",
   "license": "MIT",

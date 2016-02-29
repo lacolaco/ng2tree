@@ -1,6 +1,12 @@
-# ng2tree
+# ng2-tree
 
 Angular 2 runtime console debugger
+
+## Installation
+
+```
+npm install --save ng2-tree-viewer
+```
 
 ## Usage
 
