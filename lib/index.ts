@@ -1,41 +1,83 @@
-import {DebugNode, DebugElement} from "angular2/core";
+import {DebugElement} from "angular2/core";
+
+class LogGroup {
+  messages: string[] = [];
+  inner: LogGroup[] = [];
+
+  constructor(public name: string) {
+  }
+
+  child(name: string): LogGroup {
+    let newChild = new LogGroup(name);
+    this.inner.push(newChild);
+    return newChild;
+  }
+
+  addMessage(msg: string): LogGroup {
+    this.messages.push(msg);
+    return this;
+  }
+
+  emit() {
+    console.group(this.name);
+    this.messages.forEach(msg => {
+      console.log(msg);
+    });
+    this.inner.forEach(child => {
+      child.emit();
+    });
+    console.groupEnd();
+  }
+}
+
+// global context
+var context = <any>window;
 
 // ng.probe
-declare var ng:{ probe: (el:Element) => DebugElement };
+declare var ng: { probe: (el: Element) => DebugElement };
 
 class Angular2TreeTool {
 
-  buildTree():string {
-    const root = this.findRoot();
-    if (!root) {
-      throw "Cannot find root ng2 element!";
+  buildTree() {
+    var rootNodes: DebugElement[];
+    if ("getAllAngularRootElements" in context) {
+      rootNodes = context.getAllAngularRootElements().map((el: Element) => ng.probe(el));
+    } else {
+      rootNodes = [this.findRoot()];
     }
-    const cmpElements = this.walk(root);
-    const cmpLines = cmpElements.map((item)=> {
-      let indent = "";
-      for (let i = 0; i < item.depth; i++) {
-        indent += "\t";
-      }
-      const tagName = item.element.nativeElement.localName;
-      const cmpClassName = item.element.componentInstance.constructor.name;
-      const cmpProps = JSON.stringify(item.element.componentInstance);
-      return `${indent}<${tagName}> ${cmpClassName} ${cmpProps}`;
+
+    if (!rootNodes || rootNodes.length === 0) {
+      throw "Cannot find rootNodes ng2 element!";
+    }
+    const logger = new LogGroup("/");
+    rootNodes.forEach((rootNode: DebugElement) => {
+      this.walk(rootNode, logger);
+      logger.emit();
     });
-    return cmpLines.join("\n");
   }
 
-  private walk(el:DebugElement, depth = 0, components = <any>[]):{depth: number, element: DebugElement}[] {
+  private walk(el: DebugElement, logger: LogGroup) {
+    if (!el) {
+      return;
+    }
+    var _logger = logger;
     if (el.componentInstance) {
-      components.push({depth: depth, element: el});
-      depth++;
+      let name = el.name || el.nativeElement.localName;
+      let cmpName = el.providerTokens[0].name;
+      _logger = logger.child(`/${name}: ${cmpName}`);
+
+      if (JSON.stringify(el.componentInstance) !== "{}") {
+        _logger.addMessage(el.nativeElement);
+        _logger.addMessage(JSON.stringify(el.componentInstance, null, 2));
+      }
     }
-    el.children.forEach((child:DebugElement) => {
-      this.walk(child, depth, components);
+
+    el.children.forEach(child => {
+      this.walk(child, _logger);
     });
-    return components;
   }
 
-  private findRoot():DebugElement {
+  private findRoot(): DebugElement {
     const elements = document.body.children;
     for (let i = 0; i < elements.length; i++) {
       const el = ng.probe(elements.item(i));
@@ -46,13 +88,10 @@ class Angular2TreeTool {
   }
 }
 
-// global context
-var context = <any>window;
-
 export function enableNg2Tree() {
   console.log("Let's execute `ng2tree();`");
   context.ng2tree = () => {
-    return new Angular2TreeTool().buildTree();
+    new Angular2TreeTool().buildTree();
   };
 }
 

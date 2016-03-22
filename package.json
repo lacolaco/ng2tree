@@ -7,8 +7,8 @@
     "start": "ws -d example -s index.html",
     "prebuild": "tsconfig -u ./tsconfig.json",
     "build": "tsc",
-    "pretest": "npm run build && tsconfig -u ./test/tsconfig.json",
-    "test": "tsc -p test && mocha test -v"
+    "pretest": "npm run build && tsconfig -u ./example/tsconfig.json",
+    "test": "echo \"no test\""
   },
   "keywords": [
     "angular",
@@ -16,10 +16,12 @@
     "ng2"
   ],
   "author": "laco0416 <laco0416+github@gmail.com>",
-  "repository": "https://github.com/laco0416/ng2tree",
+  "repository": {
+    "url": "https://github.com/laco0416/ng2tree"
+  },
   "license": "MIT",
   "peerDependencies": {
-    "angular2": "^2.0.0-beta.7"
+    "angular2": "^2.0.0-beta.11"
   },
   "devDependencies": {
     "local-web-server": "^1.1.1",

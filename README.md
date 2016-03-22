@@ -23,7 +23,7 @@ if(isProd) {
 }
 ```
 
-![Imgur](http://i.imgur.com/UIeLFTT.png)
+![Imgur](http://i.imgur.com/B66U4ng.png)
 
 ## TODO
 
