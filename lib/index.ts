@@ -68,7 +68,6 @@ class Angular2TreeTool {
 
       if (JSON.stringify(el.componentInstance) !== "{}") {
         _logger.addMessage(el.nativeElement);
-        _logger.addMessage(JSON.stringify(el.componentInstance, null, 2));
       }
     }
 
