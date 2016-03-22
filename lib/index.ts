@@ -65,10 +65,7 @@ class Angular2TreeTool {
       let name = el.name || el.nativeElement.localName;
       let cmpName = el.providerTokens[0].name;
       _logger = logger.child(`/${name}: ${cmpName}`);
-
-      if (JSON.stringify(el.componentInstance) !== "{}") {
-        _logger.addMessage(el.nativeElement);
-      }
+      _logger.addMessage(el.nativeElement);
     }
 
     el.children.forEach(child => {
