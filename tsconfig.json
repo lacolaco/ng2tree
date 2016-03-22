@@ -1,16 +1,18 @@
 {
     "compilerOptions": {
-        "target": "es6",
+        "target": "es5",
         "noImplicitAny": true,
         "moduleResolution": "node",
         "declaration": true
     },
     "filesGlob": [
+        "node_modules/angular2/typings/browser.d.ts",
         "index.ts",
         "lib/**/*.ts",
         "!lib/**/*.d.ts"
     ],
     "files": [
+        "node_modules/angular2/typings/browser.d.ts",
         "index.ts",
         "lib/index.ts"
     ]

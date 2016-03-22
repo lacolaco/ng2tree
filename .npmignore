@@ -9,6 +9,7 @@ example/
 test/
 lib/**/*.ts
 !lib/**/*.d.ts
+index.ts
 
 .gitignore
 .editorconfig
