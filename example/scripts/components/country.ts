@@ -1,4 +1,4 @@
-import {Component, Input} from "angular2/core";
+import {Component, Input} from "@angular/core";
 
 import {CityCmp} from "./city";
 
@@ -7,7 +7,7 @@ import {CityCmp} from "./city";
   template: `
   <h3>{{name}}</h3>
   <ul>
-    <li *ngFor="#c of cities;">
+    <li *ngFor="let c of cities;">
       <lc-city [name]="c"></lc-city>
     </li>
   </ul>

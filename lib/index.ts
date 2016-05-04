@@ -1,4 +1,4 @@
-import {DebugElement} from "angular2/core";
+import {DebugElement} from "@angular/core";
 
 class LogGroup {
   messages: string[] = [];

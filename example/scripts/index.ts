@@ -1,8 +1,9 @@
-///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
+///<reference path="../node_modules/typescript/lib/lib.es6.d.ts"/>
 
-import "angular2-browserify-deps";
+import "reflect-metadata";
+import "zone.js/dist/zone";
 
-import {enableProdMode} from "angular2/core";
+import {enableProdMode} from "@angular/core";
 import {enableNg2Tree} from "../../index";
 
 const isProd = false;

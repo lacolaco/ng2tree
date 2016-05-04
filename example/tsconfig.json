@@ -8,10 +8,12 @@
         "moduleResolution": "node"
     },
     "filesGlob": [
+        "node_modules/typescript/lib/lib.es6.d.ts",
         "scripts/**/*.ts",
         "../index.ts"
     ],
     "files": [
+        "node_modules/typescript/lib/lib.es6.d.ts",
         "scripts/app.ts",
         "scripts/components/city.ts",
         "scripts/components/country.ts",

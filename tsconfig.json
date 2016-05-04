@@ -6,13 +6,13 @@
         "declaration": true
     },
     "filesGlob": [
-        "node_modules/angular2/typings/browser.d.ts",
+        "node_modules/typescript/lib/lib.es6.d.ts",
         "index.ts",
         "lib/**/*.ts",
         "!lib/**/*.d.ts"
     ],
     "files": [
-        "node_modules/angular2/typings/browser.d.ts",
+        "node_modules/typescript/lib/lib.es6.d.ts",
         "index.ts",
         "lib/index.ts"
     ]
