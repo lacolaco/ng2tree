@@ -1,6 +1,6 @@
 {
   "name": "ng2-tree-viewer",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Angular 2 runtime console debugger",
   "main": "index.js",
   "scripts": {
